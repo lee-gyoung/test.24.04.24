@@ -1,0 +1,113 @@
+.department {
+	.sub_visual {
+		background-image: url(../img/brand4.jpg);
+		// 이미지 경로는 css 기준에서 작성하는 것 기억하기
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+	.inner {
+		.division {
+			width: 100%;
+			height: 600px;
+			background: url(../img/bgDIvision.jpg) no-repeat center/contain;
+			.div_tree {
+				position: absolute;
+				top: -99999999px;
+				opacity: 0;
+				transition: all 1s;
+				li {
+					span {
+						display: block;
+						width: 40%;
+						height: 50px;
+						background-color: #111;
+						font: bold 13px/50px '맑은 고딕';
+						color: #fff;
+						text-align: center;
+						border-radius: 25px;
+						margin-bottom: 20px;
+						position: relative;
+						&::after {
+							content: '';
+							display: block;
+							width: 1px;
+							height: calc((50px + 20px) * 17 - (50px / 2));
+							background: #aaa;
+							position: absolute;
+							top: 50px;
+							left: 50px;
+						}
+					}
+					ul li {
+						span {
+							background-color: #666;
+							transform: translateX(70px);
+							&::before {
+								content: '';
+								display: block;
+								width: 20px;
+								height: 1px;
+								background: #aaa;
+								position: absolute;
+								top: 50%;
+								left: -20px;
+							}
+						}
+						&:nth-of-type(1) span::after {
+							display: none;
+						}
+						&:nth-of-type(2) span::after {
+							display: none;
+						}
+						&:nth-of-type(3) span::after {
+							height: calc((50px + 20px) * 2 - (50px / 2));
+						}
+						&:nth-of-type(4) span::after {
+							height: calc((50px + 20px) * 3 - (50px / 2));
+						}
+						&:nth-of-type(5) span::after {
+							height: calc((50px + 20px) * 2 - (50px / 2));
+						}
+						&:nth-of-type(6) span::after {
+							height: calc((50px + 20px) * 3 - (50px / 2));
+						}
+						&:nth-of-type(7) span::after {
+							height: calc((50px + 20px) * 2 - (50px / 2));
+						}
+						ul li {
+							span {
+								background: #999;
+								transform: translateX(140px);
+								&::after {
+									display: none;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.department {
+		.inner {
+			.division {
+				// height: 150vh;
+				// height: 150vmax;
+				height: auto;
+				// 높이값 초기화해서 다 감쌀 수 있도록 함 (중요
+				background: none;
+				// 위에서 background 속성 하나로 적었으면 여기서도 하나로 적어야함
+				.div_tree {
+					position: relative;
+					// 위에서 absolute로 높이값 없앤 거 다시 돌려놓기 위해 relative 작성
+					opacity: 1;
+					top: 0px;
+				}
+			}
+		}
+	}
+}
